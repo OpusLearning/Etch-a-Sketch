@@ -1,0 +1,11 @@
+#gridmaster {
+  display: grid;
+  gap: 1px;
+  width: 100%;
+  height: 100vh;
+}
+
+.squareClass {
+  box-sizing: border-box;
+  border: 1px solid #000;
+}
