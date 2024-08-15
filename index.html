@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="gridcontainer" id="gridmaster"></div>
-   
-            <button id="gridsize">Click me to resize the grid </button>
+    <h1>◉ Let's Etch-a-Sketch ◉</h1> 
+    
+    <div id="controls">
+      <label for="gridsize">Grid Size: <span id="gridSizeValue">64</span>x<span id="gridSizeValue2">64</span></label>
+      <input type="range" id="gridsize" min="1" max="100" value="64">
+  
+      <label for="colourpicker">Select Colour</label>
+      <input type="color" id="colourpicker" value="#000000">
+      
+      <button id="clearGrid">Clear Grid</button> 
+      <button id="randomColours">Random Colours</button> 
+    </div>
+  
+    <div id="selected-colours"></div> 
+  
+    <div id="gridmaster"></div>
+  
             <div class="footer"> © <a href="https://jameswallace.tech">JamesWallace.tech</a>
                 <div>
             <script src="etch.js"></script>

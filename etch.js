@@ -13,8 +13,9 @@ for (let i = 0; i < 300; i++) {
 }
 
 const gridContainer = document.querySelector("#gridmaster");
+const selectedColoursContainer = document.getElementById("selected-colours");
 
-function createGrid(sideLength) {
+function createGrid(sideLength, customColor = null) {
   // Clear grid
   gridContainer.innerHTML = "";
 
@@ -28,26 +29,52 @@ function createGrid(sideLength) {
 
     child.addEventListener("mouseover", function () {
       child.style.background =
-        colors[Math.floor(Math.random() * colors.length)];
+        customColor || colors[Math.floor(Math.random() * colors.length)];
     });
   }
 
-  gridContainer.style.display = "grid";
   gridContainer.style.gridTemplateColumns = `repeat(${sideLength}, 1fr)`;
 }
 
-createGrid(64);
+function addColourDot(colour) {
+  const dot = document.createElement("div");
+  dot.className = "colour-dot";
+  dot.style.backgroundColor = colour;
+  selectedColoursContainer.appendChild(dot);
+}
 
-const button = document.getElementById("gridsize");
-button.addEventListener("click", function () {
-  let sideLength = parseInt(
-    prompt("How many squares per side would you like your grid to be?")
-  );
-  const maxLength = 100;
+function clearGrid() {
+  gridContainer.innerHTML = ""; // Clear the grid
+  selectedColoursContainer.innerHTML = ""; // Clear the colour dots
+}
 
-  if (isNaN(sideLength) || sideLength <= 0 || sideLength > maxLength) {
-    alert(`Please enter a number between 1 and ${maxLength}`);
-  } else {
-    createGrid(sideLength);
-  }
+function setRandomColours() {
+  createGrid(parseInt(gridSizeSlider.value));
+  selectedColoursContainer.innerHTML = ""; // Clear the selected colour dots
+}
+
+const gridSizeSlider = document.getElementById("gridsize");
+const colorPicker = document.getElementById("colourpicker");
+const gridSizeValue = document.getElementById("gridSizeValue");
+const gridSizeValue2 = document.getElementById("gridSizeValue2");
+const clearGridButton = document.getElementById("clearGrid");
+const randomColoursButton = document.getElementById("randomColours");
+
+gridSizeSlider.addEventListener("input", function () {
+  const sideLength = parseInt(gridSizeSlider.value);
+  gridSizeValue.textContent = sideLength;
+  gridSizeValue2.textContent = sideLength;
+  createGrid(sideLength, colorPicker.value);
 });
+
+colorPicker.addEventListener("input", function () {
+  const selectedColour = colorPicker.value;
+  createGrid(parseInt(gridSizeSlider.value), selectedColour);
+  addColourDot(selectedColour);
+});
+
+clearGridButton.addEventListener("click", clearGrid);
+randomColoursButton.addEventListener("click", setRandomColours);
+
+// Initialize grid
+createGrid(64);
