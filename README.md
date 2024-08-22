@@ -26,7 +26,7 @@ Technical Details
 Screenshot
 
 
-![Grid Creator Screenshot](./grid_creator.png)
+![Grid Creator Screenshot](./etch.png)
 
 Ready to Create?
 Now that you know the basics, it's time to get started! Adjust the grid size, pick your colours, and let your creativity run wild. Enjoy making beautiful, colourful grids that you can tweak and play with endlessly!
