@@ -1,5 +1,5 @@
-Colourful Grid Creator README
-Welcome to the Colourful Grid Creator! 🎨 This is your go-to tool for creating vibrant, dynamic grids that can brighten up any screen. Whether you're looking to explore a sea of random colours or create a custom colour grid, this tool has you covered!
+
+Welcome to Etch-a Sketch! 🎨 This is your go-to tool for creating vibrant, dynamic grids that can brighten up any screen. Whether you're looking to explore a sea of random colours or create a custom colour grid, this tool has you covered!
 
 Visit a live version here: https://opuslearning.github.io/Etch-a-Sketch/
 How to Use
